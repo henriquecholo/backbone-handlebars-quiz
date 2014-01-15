@@ -1,0 +1,23 @@
+{{#list questions}}
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="labelAsk" class="col-sm-offset-1 col-sm-1">Question {{id}}:</label>
+        <div class="col-sm-3">
+          <label type="question" id="labelQuestion{{id}}">{{question}}</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAnswer" class="col-sm-offset-1 col-sm-1">Answer:</label>
+        <div class="col-sm-3">
+            <div class="list-group">
+              <a href="#" class="list-group-item" id="option1-{{id}}">{{option1}}</a>
+              <a href="#" class="list-group-item" id="option2-{{id}}">{{option2}}</a>
+              <a href="#" class="list-group-item" id="option3-{{id}}">{{option3}}</a>
+              <a href="#" class="list-group-item" id="option4-{{id}}">{{option4}}</a>
+              <a href="#" class="list-group-item" id="option5-{{id}}">{{option5}}</a>
+            </div>
+        </div>
+      </div>
+    </div>
+</form>
+{{/list}}
