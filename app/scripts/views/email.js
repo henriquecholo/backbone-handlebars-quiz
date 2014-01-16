@@ -4,13 +4,15 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'templates',
     'handlebars',
-    'hbs!templates/email'
-], function ($, _, Backbone, Handlebars, Template) {
+    'emailModel',
+    'quizView'
+], function ($, _, Backbone, JST, Handlebars, EmailModel, QuizView) {
     'use strict';
 
     var EmailView = Backbone.View.extend({
-        template: Template,
+        template: JST['app/scripts/templates/email.hbs'],
         initialize: function(){
             this.model = new EmailModel();
             this.render();

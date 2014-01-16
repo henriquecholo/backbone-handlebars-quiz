@@ -1,0 +1,25 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   .yo-rc.json
+#	modified:   Gruntfile.js
+#	modified:   app/index.html
+#	modified:   app/scripts/collections/quiz.js
+#	new file:   app/scripts/data/email-model.json
+#	modified:   app/scripts/main.js
+#	modified:   app/scripts/models/email.js
+#	modified:   app/scripts/templates/email.hbs
+#	modified:   app/scripts/templates/quiz.hbs
+#	modified:   app/scripts/views/email.js
+#	modified:   app/scripts/views/quiz.js
+#	new file:   app/styles/main.css
+#	modified:   app/styles/main.scss
+#	modified:   bower.json
+#	deleted:    npm-debug.log
+#	modified:   package.json
+#
+

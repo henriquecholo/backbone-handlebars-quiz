@@ -22,11 +22,7 @@ require.config({
             exports: 'jquery'
         },
         handlebars: {
-            exports: 'handlebars'
-        },
-        hbs: {
-            deps: ['handlebars'],
-            exports: 'hbs'
+            exports: 'Handlebars'
         }
     },
     paths: {
@@ -34,14 +30,21 @@ require.config({
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/underscore/underscore',
         bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap',
-        handlebars: '../bower_components/handlebars',
-        hbs: "../bower_components/hbs",
-        localStorage: "../bower_components/backbone.localStorage"
+        handlebars: '../bower_components/handlebars/handlebars',
+        localStorage: "../bower_components/backbone.localStorage/backbone.localStorage",
+        emailView: "views/email",
+        emailModel: "models/email",
+        quizView: "views/quiz",
+        quizModel: "models/quiz",
+        quizCollection: "collections/quiz"
     }
 });
 
 require([
-    'backbone'
-], function (Backbone) {
+    'backbone',
+    'emailView'
+], function (Backbone, EmailView) {
     Backbone.history.start();
+    new EmailView;
 });
+

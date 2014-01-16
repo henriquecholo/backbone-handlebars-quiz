@@ -4,13 +4,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'handlebars',
-    'hbs!templates/quiz'
-], function ($, _, Backbone, Handlebars, Template) {
+    'templates',
+    'quizCollection'
+], function ($, _, Backbone, JST, QuizCollection) {
     'use strict';
 
     var QuizView = Backbone.View.extend({
-        template: Template,
+        template: JST['app/scripts/templates/quiz.hbs'],
         initialize: function(){
             this.collection = new QuizCollection();
             var collection = this.collection,

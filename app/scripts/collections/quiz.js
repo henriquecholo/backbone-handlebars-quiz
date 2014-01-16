@@ -3,14 +3,14 @@
 define([
     'underscore',
     'backbone',
-    'models/quiz',
+    'quizModel',
     'localStorage'
 ], function (_, Backbone, QuizModel, LocalStorage) {
     'use strict';
 
     var QuizCollection = Backbone.Collection.extend({
         model: QuizModel,
-        url: "/js/data/quiz-collection.json",
+        url: "../data/quiz-collection.json",
         localStorage : new LocalStorage("QuizCollection"),
         refreshFromServer : function(options) {
             return Backbone.ajaxSync('read', this, options);

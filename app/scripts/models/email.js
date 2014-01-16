@@ -14,7 +14,7 @@ define([
             timestamp: 0,
             completed: false
         },
-        url: "/js/data/email-model.json",
+        url: "data/email-model.json",
         localStorage : new LocalStorage("EmailModel"),
         initialize: function() {
         },
