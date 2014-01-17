@@ -1,21 +1,18 @@
-{
-  questions:
-  [
+[
     {
-        question: "Which one of them are inside America?",
-        option1: "USA",
-        option2: "Brazil",
-        option3: "Mongoly",
-        option4: "Afghanistan",
-        option5: "Colombia"
+        "question": "Which one of them are inside America?",
+        "option1": "USA",
+        "option2": "Brazil",
+        "option3": "Mongoly",
+        "option4": "Afghanistan",
+        "option5": "Colombia"
     },
     {
-        question: "Which one of them are inside Africa?",
-        option1: "USA",
-        option2: "Congo",
-        option3: "Mongoly",
-        option4: "Egypt",
-        option5: "South Africa"
+        "question": "Which one of them are inside Africa?",
+        "option1": "USA",
+        "option2": "Congo",
+        "option3": "Mongoly",
+        "option4": "Egypt",
+        "option5": "South Africa"
     }
-  ]
-}
+]

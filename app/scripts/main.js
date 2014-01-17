@@ -37,6 +37,14 @@ require.config({
         quizView: "views/quiz",
         quizModel: "models/quiz",
         quizCollection: "collections/quiz"
+    },
+    config: {
+        text: {
+          useXhr: function (url, protocol, hostname, port) {
+            // allow cross-domain requests
+            return true;
+          }
+        }
     }
 });
 

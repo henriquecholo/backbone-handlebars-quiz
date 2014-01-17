@@ -10,7 +10,7 @@ define([
 
     var QuizCollection = Backbone.Collection.extend({
         model: QuizModel,
-        url: "../data/quiz-collection.json",
+        url: "/scripts/data/quiz-collection.json",
         localStorage : new LocalStorage("QuizCollection"),
         refreshFromServer : function(options) {
             return Backbone.ajaxSync('read', this, options);

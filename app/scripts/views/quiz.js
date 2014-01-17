@@ -24,15 +24,17 @@ define([
                     count++;
                 });
                 collection.fetch();
+            }, error: function(){
+                console.log("Error on refreshFromServer ajax call");
             }}).done(function() {
                 self.render(collection);
-                self.$el.append("<div id='submitDiv' class='col-sm-offset-4'></div>");
+                self.$el.append("<div id='submitDiv' class='col-sm-offset-5'></div>");
                 var button = document.createElement("button");
                 button.id = 'submitQuiz';
                 button.textContent = "Submit Quiz";
                 $('#submitDiv').append(button);
                 $('#submitQuiz').addClass("btn btn-primary");
-                $('#submitQuiz').css({"margin-left":"40px"});
+                $('#submitQuiz').css({"margin-bottom":"20px"});
             });
         },
         el: '#quiz',
