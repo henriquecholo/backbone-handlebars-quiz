@@ -46,7 +46,7 @@ define([
                 var label = document.createElement("label");
                 label.textContent = "Email and password saved on localStorage.";
                 this.$('#signInForm').append(label);
-                new QuizView;
+                Backbone.history.navigate('/quizz', { trigger: true });
             }
         }
     });

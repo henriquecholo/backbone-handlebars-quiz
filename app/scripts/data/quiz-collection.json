@@ -5,7 +5,8 @@
         "option2": "Brazil",
         "option3": "Mongoly",
         "option4": "Afghanistan",
-        "option5": "Colombia"
+        "option5": "Colombia",
+        "answersFromUser": []
     },
     {
         "question": "Which one of them are inside Africa?",
@@ -13,6 +14,7 @@
         "option2": "Congo",
         "option3": "Mongoly",
         "option4": "Egypt",
-        "option5": "South Africa"
+        "option5": "South Africa",
+        "answersFromUser": []
     }
 ]

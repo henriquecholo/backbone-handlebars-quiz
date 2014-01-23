@@ -15,7 +15,8 @@ define([
             option4: "",
             option5: "",
             timestamp: 0,
-            completed: false
+            completed: false,
+            answersFromUser: []
         },
         validate: function(attrs) {
           if ( _.isEmpty(attrs.question) ) {

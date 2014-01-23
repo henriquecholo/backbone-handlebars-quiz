@@ -36,7 +36,10 @@ require.config({
         emailModel: "models/email",
         quizView: "views/quiz",
         quizModel: "models/quiz",
-        quizCollection: "collections/quiz"
+        quizCollection: "collections/quiz",
+        resultView: "views/result",
+        answerModel: "models/answer",
+        answerCollection: "collections/answer",
     },
     config: {
         text: {
@@ -50,9 +53,9 @@ require.config({
 
 require([
     'backbone',
-    'emailView'
-], function (Backbone, EmailView) {
-    Backbone.history.start();
-    new EmailView;
+    'routes/app'
+], function (Backbone, AppRouter) {
+    new AppRouter;
+    Backbone.history.start({ pushState: true });
 });
 
