@@ -1,2 +1,14 @@
-<p>Your content here.</p>
-
+{{#each collection}}
+<span id="answerQuestion{{id}}">Question {{id}} - {{question}}</span>
+<div class="progress">
+  <div class="progress-bar progress-bar" role="progressbar" aria-valuenow="{{correctPercentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{correctPercentage}}%">
+    <span>{{correctPercentage}}%</span>
+  </div>
+</div>
+{{/each}}
+<label>Average Rate</label>
+<div class="progress progress-striped active">
+  <div class="progress-bar progress-bar" role="progressbar" aria-valuenow="{{AverageRate}}" aria-valuemin="0" aria-valuemax="100" style="width: {{AverageRate}}%">
+    <span>{{AverageRate}}%</span>
+  </div>
+</div>

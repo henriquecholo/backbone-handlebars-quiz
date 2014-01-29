@@ -39,7 +39,7 @@ require.config({
         quizCollection: "collections/quiz",
         resultView: "views/result",
         answerModel: "models/answer",
-        answerCollection: "collections/answer",
+        answerCollection: "collections/answer"
     },
     config: {
         text: {

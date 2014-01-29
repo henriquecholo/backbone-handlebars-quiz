@@ -5,8 +5,9 @@ define([
     'underscore',
     'backbone',
     'templates',
-    'answerCollection'
-], function ($, _, Backbone, JST, AnswerCollection) {
+    'answerCollection',
+    'handlebars'
+], function ($, _, Backbone, JST, AnswerCollection, Handlebars) {
     'use strict';
 
     var ResultView = Backbone.View.extend({
@@ -22,22 +23,31 @@ define([
             }, error: function(){
                 console.log("Error on refreshFromServer ajax call");
             }}).done(function() {
+                var quizAmount = 0;
                 answerCollection.each(function(answerModel) {
                     var quizModel = quizCollection.find({id: answerModel.attributes.question});
                     var index = 0,
-                        optionString = '';
+                        optionString = '',
+                        rightFromUser = 0;
                     while(index < 5) {
-                        if(quizModel.answersFromUser[index] === answerModel.values()[index + 1])
-                            console.log("Right answer");
+                        if(quizModel.answersFromUser[index] === answerModel.values()[index + 1]) {
+                            rightFromUser++;
+                        }
                         index++;
                     }
+                    quizModel.correctPercentage = (100 * rightFromUser) / 5;
+                    quizAmount += quizModel.correctPercentage;
+                    localStorage.setItem("QuizCollection-" + answerModel.attributes.question, JSON.stringify(quizModel));
                 });
-                self.render(answerCollection);
+                Handlebars.registerHelper("AverageRate", function() {
+                    return quizAmount / quizCollection.records.length;
+                });
+                self.render(quizCollection);
             });
         },
         el: '#result',
         render: function(collection){
-            this.$el.html(this.template({collection: collection.toJSON()}));
+            this.$el.html(this.template({collection: collection.findAll()}));
         },
     });
 

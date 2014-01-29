@@ -13,7 +13,7 @@ define([
             option2: "",
             option3: "",
             option4: "",
-            option5: "",
+            option5: ""
         }
     });
 

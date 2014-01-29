@@ -3,7 +3,7 @@
 define([
     'underscore',
     'backbone',
-    'models/answer',
+    'answerModel',
     'localStorage'
 ], function (_, Backbone, AnswerModel, LocalStorage) {
     'use strict';
