@@ -6,9 +6,8 @@ define([
     'backbone',
     'templates',
     'handlebars',
-    'emailModel',
-    'quizView'
-], function ($, _, Backbone, JST, Handlebars, EmailModel, QuizView) {
+    'emailModel'
+], function ($, _, Backbone, JST, Handlebars, EmailModel) {
     'use strict';
 
     var EmailView = Backbone.View.extend({
@@ -28,14 +27,14 @@ define([
             e.preventDefault();
             var emailText = this.$('#inputEmail').val();
             var passwordText = this.$('#inputPassword').val();
-            if(emailText === "" && passwordText === ""){
-                alert("Please provide the email and password!");
+            if(emailText === '' && passwordText === ''){
+                document.alert('Please provide the email and password!');
             }
-            else if(emailText === "") {
-                alert("Please provide the email!");
+            else if(emailText === '') {
+                document.alert('Please provide the email!');
             }
-            else if(passwordText === "") {
-                alert("Please provide the password!");
+            else if(passwordText === '') {
+                document.alert('Please provide the password!');
             }
             else {
                 localStorage.clear();
@@ -43,8 +42,8 @@ define([
                 this.$('#inputEmail').attr('disabled', true);
                 this.$('#inputPassword').attr('disabled', true);
                 this.$('#signIn').attr('disabled', true);
-                var label = document.createElement("label");
-                label.textContent = "Email and password saved on localStorage.";
+                var label = document.createElement('label');
+                label.textContent = 'Email and password saved on localStorage.';
                 this.$('#signInForm').append(label);
                 Backbone.history.navigate('/quizz', { trigger: true });
             }

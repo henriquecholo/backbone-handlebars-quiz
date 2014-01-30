@@ -9,22 +9,22 @@ define([
 
     var EmailModel = Backbone.Model.extend({
         defaults: {
-            email: "",
-            password: "",
+            email: '',
+            password: '',
             timestamp: 0,
             completed: false
         },
-        url: "/scripts/data/email-model.json",
-        localStorage : new LocalStorage("EmailModel"),
+        url: '/scripts/data/email-model.json',
+        localStorage : new LocalStorage('EmailModel'),
         initialize: function() {
         },
         validate: function(attrs) {
-          if ( _.isEmpty(attrs.email) ) {
-            return "Missing Email";
-          }
-          if ( _.isEmpty(attrs.password) ) {
-            return "Missing Password";
-          }
+            if ( _.isEmpty(attrs.email) ) {
+                return 'Missing Email';
+            }
+            if ( _.isEmpty(attrs.password) ) {
+                return 'Missing Password';
+            }
         }
     });
 

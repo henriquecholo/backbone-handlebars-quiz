@@ -25,16 +25,16 @@ define([
                 });
                 collection.fetch();
             }, error: function(){
-                console.log("Error on refreshFromServer ajax call");
+                console.log('Error on refreshFromServer ajax call');
             }}).done(function() {
                 self.render(collection);
-                self.$el.append("<div id='submitDiv' class='col-sm-offset-5'></div>");
-                var button = document.createElement("button");
+                self.$el.append('<div id="submitDiv" class="col-sm-offset-5"></div>');
+                var button = document.createElement('button');
                 button.id = 'submitQuiz';
-                button.textContent = "Submit Quiz";
+                button.textContent = 'Submit Quiz';
                 $('#submitDiv').append(button);
-                $('#submitQuiz').addClass("btn btn-primary");
-                $('#submitQuiz').css({"margin-bottom":"20px"});
+                $('#submitQuiz').addClass('btn btn-primary');
+                $('#submitQuiz').css({'margin-bottom':'20px'});
             });
         },
         el: '#quiz',
@@ -42,8 +42,8 @@ define([
             this.$el.html(this.template({collection: collection.toJSON()}));
         },
         events: {
-            "click .list-group-item": 'checkActiveAnswers',
-            "click #submitQuiz": 'submitQuiz'
+            'click .list-group-item': 'checkActiveAnswers',
+            'click #submitQuiz': 'submitQuiz'
         },
         checkActiveAnswers: function (e){
             e.preventDefault();
@@ -55,14 +55,14 @@ define([
                 var activesItems = element.parent().children('.active');
                 var listGroupActive = activesItems ? activesItems.length : 0;
                 if(listGroupActive >= 3){
-                    alert("Can only select 3 options.");
+                    document.alert('Can only select 3 options.');
                 }
                 else {
                     element.addClass('active');
                 }
             }
         },
-        submitQuiz: function (e) {
+        submitQuiz: function () {
             this.collection.each(function(model) {
                 var option1 = $('#option1-' + model.id).hasClass('active');
                 var option2 = $('#option2-' + model.id).hasClass('active');

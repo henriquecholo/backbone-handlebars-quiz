@@ -16,19 +16,19 @@ define([
             'result' : 'result'
         },
         index: function () {
-            new EmailView;
+            new EmailView();
             $('#quiz').hide();
             $('#result').hide();
             $('#email').show();
         },
         quizz: function () {
-            new QuizView;
+            new QuizView();
             $('#email').hide();
             $('#result').hide();
             $('#quiz').show();
         },
         result: function () {
-            new ResultView;
+            new ResultView();
             $('#email').hide();
             $('#result').show();
             $('#quiz').hide();

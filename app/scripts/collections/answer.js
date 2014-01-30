@@ -10,19 +10,19 @@ define([
 
     var AnswerCollection = Backbone.Collection.extend({
         model: AnswerModel,
-        url: "/scripts/data/answers-collection.json",
-        localStorage : new LocalStorage("QuizCollection"),
+        url: '/scripts/data/answers-collection.json',
+        localStorage : new LocalStorage('QuizCollection'),
         refreshFromServer : function(options) {
             return Backbone.ajaxSync('read', this, options);
         },
         completed: function() {
-          return this.where({completed: true});
+            return this.where({completed: true});
         },
         remaining: function() {
-          return this.where({completed: false});
+            return this.where({completed: false});
         },
         comparator: function(model){
-          return model.get('timestamp');
+            return model.get('timestamp');
         }
     });
 
