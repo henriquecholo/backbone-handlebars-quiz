@@ -8,6 +8,7 @@ This quiz is different then the backbone-quiz. I'm still using Backbone, Undersc
 Speaking in npm and bower, to run the application you need to first get all the folders and files, then install NodeJs.
 
 After that you can just simply do those commands on terminal:
+
 Installing the node_modules folder
 
 npm install -g
