@@ -8,16 +8,16 @@ This quiz is different then the backbone-quiz. I'm still using Backbone, Undersc
 Speaking in npm and bower, to run the application you need to first get all the folders and files, then install NodeJs.
 
 After that you can just simply do those commands on terminal:
--- Installing the node_modules folder
+Installing the node_modules folder
 npm install -g
 
--- Installing bower dependencies
+Installing bower dependencies
 bower install -g
 
--- Building grunt
+Building grunt
 grunt build
 
--- Running the Grunt Server
+Running the Grunt Server
 grunt server
 
 If you face any problems, you might need to also install ruby and compass in the better way on your machine:
