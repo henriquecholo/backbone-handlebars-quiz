@@ -5,27 +5,21 @@ define([
     'underscore',
     'backbone',
     'templates',
-    'answerCollection',
     'handlebars'
-], function ($, _, Backbone, JST, AnswerCollection, Handlebars) {
+], function ($, _, Backbone, JST, Handlebars) {
     'use strict';
 
     var ResultView = Backbone.View.extend({
         template: JST['app/scripts/templates/result.hbs'],
-        initialize: function(){
-            this.quizCollection = new Backbone.LocalStorage('QuizCollection');
-            this.answerCollection = new AnswerCollection();
-            var answerCollection = this.answerCollection,
-                quizCollection = this.quizCollection,
-                self = this;
-            answerCollection.refreshFromServer({success: function(freshData) {
-                answerCollection.reset(freshData);
+        initialize: function () {
+            var self = this;
+            this.options.answerCollection.refreshFromServer({success: function(freshData) {
+                self.options.answerCollection.reset(freshData);
             }, error: function(){
                 console.log('Error on refreshFromServer ajax call');
             }}).done(function() {
-                var quizAmount = 0;
-                answerCollection.each(function(answerModel) {
-                    var quizModel = quizCollection.find({id: answerModel.attributes.question});
+                self.options.answerCollection.each(function(answerModel) {
+                    var quizModel = self.collection.find({id: answerModel.attributes.question});
                     var index = 0,
                         rightFromUser = 0;
                     while(index < 5) {
@@ -35,19 +29,18 @@ define([
                         index++;
                     }
                     quizModel.correctPercentage = (100 * rightFromUser) / 5;
-                    quizAmount += quizModel.correctPercentage;
+                    self.options.quizAmount += quizModel.correctPercentage;
                     localStorage.setItem('QuizCollection-' + answerModel.attributes.question, JSON.stringify(quizModel));
                 });
                 Handlebars.registerHelper('AverageRate', function() {
-                    return quizAmount / quizCollection.records.length;
+                    return self.options.quizAmount / self.collection.records.length;
                 });
-                self.render(quizCollection);
+                self.render();
             });
         },
-        el: '#result',
-        render: function(collection){
-            this.$el.html(this.template({collection: collection.findAll()}));
-        },
+        render: function(){
+            this.$el.html(this.template({collection: this.collection.findAll()}));
+        }
     });
 
     return ResultView;

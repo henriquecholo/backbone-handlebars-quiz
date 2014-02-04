@@ -4,19 +4,12 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'templates',
-    'handlebars',
-    'emailModel'
-], function ($, _, Backbone, JST, Handlebars, EmailModel) {
+    'templates'
+], function ($, _, Backbone, JST) {
     'use strict';
 
     var EmailView = Backbone.View.extend({
         template: JST['app/scripts/templates/email.hbs'],
-        initialize: function(){
-            this.model = new EmailModel();
-            this.render();
-        },
-        el: '#email',
         render: function(){
             this.$el.html(this.template(this.model.toJSON()));
         },

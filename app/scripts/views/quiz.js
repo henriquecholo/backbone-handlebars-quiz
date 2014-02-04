@@ -4,42 +4,31 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'templates',
-    'quizCollection'
-], function ($, _, Backbone, JST, QuizCollection) {
+    'templates'
+], function ($, _, Backbone, JST) {
     'use strict';
 
     var QuizView = Backbone.View.extend({
         template: JST['app/scripts/templates/quiz.hbs'],
-        initialize: function(){
-            this.collection = new QuizCollection();
-            var collection = this.collection,
-                self = this;
-            collection.refreshFromServer({success: function(freshData) {
-                collection.reset(freshData);
+        initialize: function () {
+            var self = this;
+            this.collection.refreshFromServer({success: function(freshData) {
+                self.collection.reset(freshData);
                 var count = 1;
-                collection.each(function(model) {
+                self.collection.each(function(model) {
                     model.set({id: count});
                     model.save();
                     count++;
                 });
-                collection.fetch();
+                self.collection.fetch();
             }, error: function(){
                 console.log('Error on refreshFromServer ajax call');
             }}).done(function() {
-                self.render(collection);
-                self.$el.append('<div id="submitDiv" class="col-sm-offset-5"></div>');
-                var button = document.createElement('button');
-                button.id = 'submitQuiz';
-                button.textContent = 'Submit Quiz';
-                $('#submitDiv').append(button);
-                $('#submitQuiz').addClass('btn btn-primary');
-                $('#submitQuiz').css({'margin-bottom':'20px'});
+                self.render();
             });
         },
-        el: '#quiz',
-        render: function(collection){
-            this.$el.html(this.template({collection: collection.toJSON()}));
+        render: function(){
+            this.$el.html(this.template({collection: this.collection.toJSON()}));
         },
         events: {
             'click .list-group-item': 'checkActiveAnswers',
